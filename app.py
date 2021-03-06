@@ -49,7 +49,7 @@ def menu():
                 \r1) Display Team Stats
                 \r2) Quit''')
             user_choice = input("\nEnter an Option: ")
-            if user_choice.upper() in ['1', '2']:
+            if user_choice in ['1', '2']:
                 return user_choice
             else: 
                 input('''
@@ -88,8 +88,6 @@ def experienced(team):
         elif experience['experience'] == False:
             inexperienced_players_count += 1
     return experienced_players_count, inexperienced_players_count 
-
-
 
 
 def app():
@@ -163,11 +161,11 @@ def app():
                         \n{warriors_team[0]['name']}, {warriors_team[1]['name']}, {warriors_team[2]['name']}, {warriors_team[3]['name']}, {warriors_team[4]['name']}, {warriors_team[5]['name']}\n
                         \nGuardians:
                         \r{warriors_team[0]['guardians']}, {warriors_team[1]['guardians']}, {warriors_team[2]['guardians']}, {warriors_team[3]['guardians']}, {warriors_team[4]['guardians']}, {warriors_team[5]['guardians']}''')
-
                 else:
-                    input("INVALID OPTION. PLEASE TRY AGAIN... ")
-            except ValueError:
-                users_choice = input('INVALID OPTION. PLEASE TRY AGAIN...')
+                    sub_choice = input('Error. Press ENTER to retry:  ')
+                menu()
+            except:
+                sub_choice = input('INVALID OPTION. ')
         elif users_choice == '2':
             return print("\n\nGOODBYE\n\n")
 
