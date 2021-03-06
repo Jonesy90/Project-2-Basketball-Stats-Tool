@@ -163,7 +163,7 @@ def app():
                         \r{warriors_team[0]['guardians']}, {warriors_team[1]['guardians']}, {warriors_team[2]['guardians']}, {warriors_team[3]['guardians']}, {warriors_team[4]['guardians']}, {warriors_team[5]['guardians']}''')
                 else:
                     sub_choice = input('Error. Press ENTER to retry:  ')
-                menu()
+                users_choice = menu()
             except:
                 sub_choice = input('INVALID OPTION. ')
         elif users_choice == '2':
