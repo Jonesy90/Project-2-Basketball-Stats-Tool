@@ -167,7 +167,8 @@ def app():
             except:
                 sub_choice = input('INVALID OPTION. ')
         elif users_choice == '2':
-            return print("\n\nGOODBYE\n\n")
+            print("\n\nGOODBYE\n\n")
+            return
 
 
 
