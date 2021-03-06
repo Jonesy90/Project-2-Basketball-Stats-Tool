@@ -116,7 +116,7 @@ def app():
                         \nTotal Players: {len(panthers_team)}
                         \rTotal Experienced: {panther_experienced}
                         \rTotal Inexperienced: {panther_inexperienced}
-                        \rAverage Height: {panther_team_average_height}
+                        \rAverage Height: {int(panther_team_average_height)}
                         \nPlayers on Team:
                         \r{panthers_team[0]['name']}, {panthers_team[1]['name']}, {panthers_team[2]['name']}, {panthers_team[3]['name']}, {panthers_team[4]['name']}, {panthers_team[5]['name']}
                         \nGuardians:
@@ -125,22 +125,19 @@ def app():
                 elif sub_choice == '2':
 
                     # For Loop calculating the average height of the Bandit team.
-                    bandit_team_average_height = average_height(bandits_team)
+                    bandit_team_average_height = average_height(panthers_team)
                     
                     # For Loop over the Panthers Team to which will increase the counter once a experienced player is found.
-                    for experience in bandits_team:
-                        if experience['experience'] == True:
-                            experienced_players_count += 1
-                        elif experience['experience'] == False:
-                            inexperienced_players_count += 1
+                    bandit_experienced = experienced(bandits_team)[0]
+                    bandit_inexperienced = experienced(bandits_team)[1]
 
                     print(f'''
                         \nTeam: Bandits Stats
                         \n---------------------
                         \nTotal Players: {len(bandits_team)}
-                        \rTotal Experienced: {experienced_players_count}
-                        \rTotal Inexperienced: {inexperienced_players_count}
-                        \rAverage Height: {bandit_team_average_height}
+                        \rTotal Experienced: {bandit_experienced}
+                        \rTotal Inexperienced: {bandit_inexperienced}
+                        \rAverage Height: {int(bandit_team_average_height)}
                         \nPlayers on Team:
                         \n{bandits_team[0]['name']}, {bandits_team[1]['name']}, {bandits_team[2]['name']}, {bandits_team[3]['name']}, {bandits_team[4]['name']}, {bandits_team[5]['name']}\n
                         \nGuardians:
@@ -149,22 +146,19 @@ def app():
                 elif sub_choice == '3':
 
                     # For Loop calculating the average height of the Warrior team.
-                    warriors_team_average_height = average_height(bandits_team)
+                    bandit_team_average_height = average_height(panthers_team)
                     
                     # For Loop over the Panthers Team to which will increase the counter once a experienced player is found.
-                    for experience in warriors_team:
-                        if experience['experience'] == True:
-                            experienced_players_count += 1
-                        elif experience['experience'] == False:
-                            inexperienced_players_count += 1
+                    warrior_experienced = experienced(bandits_team)[0]
+                    warrior_inexperienced = experienced(bandits_team)[1]
 
                     print(f'''
                         \nTeam: Warrior Stats
                         \n---------------------
                         \nTotal Players: {len(bandits_team)}
-                        \rTotal Experienced: {experienced_players_count}
-                        \rTotal Inexperienced: {inexperienced_players_count}
-                        \rAverage Height: {warriors_team_average_height}
+                        \rTotal Experienced: {warrior_experienced}
+                        \rTotal Inexperienced: {warrior_inexperienced}
+                        \rAverage Height: {int(bandit_team_average_height)}
                         \nPlayers on Team:
                         \n{warriors_team[0]['name']}, {warriors_team[1]['name']}, {warriors_team[2]['name']}, {warriors_team[3]['name']}, {warriors_team[4]['name']}, {warriors_team[5]['name']}\n
                         \nGuardians:
@@ -176,7 +170,6 @@ def app():
             except ValueError:
                 sub_choice = input('INVALID OPTION. PRESS ENTER TO TRY AGAIN...')
 
-                menu()
         elif users_choice == '2':
             return print("\n\nGOODBYE\n\n")
 
