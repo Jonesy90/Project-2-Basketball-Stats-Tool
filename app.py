@@ -38,6 +38,7 @@ def balance_teams():
                 warriors_team.append(inexperienced_players[counter])
                 counter += 1
 
+
 # The main menu of the application.
 def menu():
     while True:
@@ -59,6 +60,7 @@ def menu():
         except ValueError:
             user_choice = input('Invalid Entry. Please try again....')
 
+
 def sub_menu():
     try:
         print('''
@@ -77,6 +79,7 @@ def average_height(team):
     for height in team:
         average_team_height = average_team_height + height['height'] / len(team)
     return average_team_height
+
 
 def experienced(team):
     experienced_players_count = 0
