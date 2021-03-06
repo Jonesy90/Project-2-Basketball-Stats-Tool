@@ -107,12 +107,6 @@ def app():
                     panther_team_average_height = average_height(panthers_team)
                     
                     # For Loop over the Panthers Team to which will increase the counter once a experienced player is found.
-                    # for experience in panthers_team:
-                    #     if experience['experience'] == True:
-                    #         experienced_players_count += 1
-                    #     elif experience['experience'] == False:
-                    #         inexperienced_players_count += 1
-
                     panther_experienced = experienced(panthers_team)[0]
                     panther_inexperienced = experienced(panthers_team)[1]
 
@@ -178,6 +172,7 @@ def app():
 
                 else:
                     sub_choice = input("INVALID OPTION. PRESS ENTER TO TRY AGAIN... ")
+                return menu()
             except ValueError:
                 sub_choice = input('INVALID OPTION. PRESS ENTER TO TRY AGAIN...')
 
