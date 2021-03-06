@@ -79,6 +79,7 @@ def app():
 
     while True:
         average_team_height = 0
+
         experienced_players_count = 0
         inexperienced_players_count = 0
 
@@ -95,10 +96,7 @@ def app():
                     for experience in panthers_team:
                         if experience['experience'] == True:
                             experienced_players_count += 1
-                    
-                    # For Loop over the Panthers Team to which will increase the counter once a inexperienced player is found.
-                    for inexperience in panthers_team:
-                        if inexperience['experience'] == False:
+                        elif experience['experience'] == False:
                             inexperienced_players_count += 1
 
                     print(f'''
@@ -172,7 +170,7 @@ def app():
                 else:
                     sub_choice = input("INVALID OPTION. PRESS ENTER TO TRY AGAIN... ")
             except ValueError:
-                sub_choice = input('Invalid Entry. Please try again....')
+                sub_choice = input('Invalid Entry. PRESS ENTER TO TRY AGAIN....')
 
                 menu()
         elif users_choice == '2':
