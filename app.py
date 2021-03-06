@@ -164,7 +164,7 @@ def app():
                 else:
                     sub_choice = input("INVALID OPTION. PRESS ENTER TO TRY AGAIN... ")
             except ValueError:
-                sub_choice = input('Invalid Entry. PRESS ENTER TO TRY AGAIN....')
+                sub_choice = input('INVALID OPTION. PRESS ENTER TO TRY AGAIN...')
 
                 menu()
         elif users_choice == '2':
