@@ -121,10 +121,7 @@ def app():
                     for experience in bandits_team:
                         if experience['experience'] == True:
                             experienced_players_count += 1
-                    
-                    # For Loop over the Panthers Team to which will increase the counter once a inexperienced player is found.
-                    for inexperience in bandits_team:
-                        if inexperience['experience'] == False:
+                        elif experience['experience'] == False:
                             inexperienced_players_count += 1
 
                     print(f'''
@@ -149,10 +146,7 @@ def app():
                     for experience in warriors_team:
                         if experience['experience'] == True:
                             experienced_players_count += 1
-                    
-                    # For Loop over the Panthers Team to which will increase the counter once a inexperienced player is found.
-                    for inexperience in warriors_team:
-                        if inexperience['experience'] == False:
+                        elif experience['experience'] == False:
                             inexperienced_players_count += 1
 
                     print(f'''
