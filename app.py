@@ -40,8 +40,8 @@ def balance_teams():
 
 # The main menu of the application.
 def menu():
-    try:
-        while True:
+    while True:
+        try:
             print('''
                 \nBASKETBALL TEAM STATS TOOL
                 \n---- MENU ----
@@ -56,8 +56,8 @@ def menu():
                     \rPlease choose one of the options above.
                     \rRange from 1-2.
                     \rPress Enter to start again.''')
-    except ValueError:
-        user_choice = input('Invalid Entry. Please try again....')
+        except ValueError:
+            user_choice = input('Invalid Entry. Please try again....')
 
 def sub_menu():
     try:
@@ -72,40 +72,57 @@ def sub_menu():
         sub_choice = input('Invalid Entry. Please try again....')
 
 
+def average_height(team):
+    average_team_height = 0
+    for height in team:
+        average_team_height = average_team_height + height['height'] / len(team)
+    return average_team_height
+
+def experienced(team):
+    experienced_players_count = 0
+    inexperienced_players_count = 0
+
+    for experience in team:
+        if experience['experience'] == True:
+            experienced_players_count += 1
+        elif experience['experience'] == False:
+            inexperienced_players_count += 1
+    return experienced_players_count, inexperienced_players_count 
+
+
+
+
 def app():
     clean_data()
     balance_teams()
     users_choice = menu()
 
     while True:
-        average_team_height = 0
-
-        experienced_players_count = 0
-        inexperienced_players_count = 0
-
         if users_choice == '1':
             try:
                 sub_choice = sub_menu()
                 if sub_choice == '1':
 
                     # For Loop calculating the average height of the Panther team.
-                    for height in panthers_team:
-                        average_team_height = average_team_height + height['height'] / len(height)
+                    panther_team_average_height = average_height(panthers_team)
                     
                     # For Loop over the Panthers Team to which will increase the counter once a experienced player is found.
-                    for experience in panthers_team:
-                        if experience['experience'] == True:
-                            experienced_players_count += 1
-                        elif experience['experience'] == False:
-                            inexperienced_players_count += 1
+                    # for experience in panthers_team:
+                    #     if experience['experience'] == True:
+                    #         experienced_players_count += 1
+                    #     elif experience['experience'] == False:
+                    #         inexperienced_players_count += 1
+
+                    panther_experienced = experienced(panthers_team)[0]
+                    panther_inexperienced = experienced(panthers_team)[1]
 
                     print(f'''
                         \nTeam: Panthers Stats
                         \n---------------------
                         \nTotal Players: {len(panthers_team)}
-                        \rTotal Experienced: {experienced_players_count}
-                        \rTotal Inexperienced: {inexperienced_players_count}
-                        \rAverage Height: {average_team_height}
+                        \rTotal Experienced: {panther_experienced}
+                        \rTotal Inexperienced: {panther_inexperienced}
+                        \rAverage Height: {panther_team_average_height}
                         \nPlayers on Team:
                         \r{panthers_team[0]['name']}, {panthers_team[1]['name']}, {panthers_team[2]['name']}, {panthers_team[3]['name']}, {panthers_team[4]['name']}, {panthers_team[5]['name']}
                         \nGuardians:
@@ -114,8 +131,7 @@ def app():
                 elif sub_choice == '2':
 
                     # For Loop calculating the average height of the Bandit team.
-                    for height in bandits_team:
-                        average_team_height = average_team_height + height['height'] / len(height)
+                    bandit_team_average_height = average_height(bandits_team)
                     
                     # For Loop over the Panthers Team to which will increase the counter once a experienced player is found.
                     for experience in bandits_team:
@@ -130,7 +146,7 @@ def app():
                         \nTotal Players: {len(bandits_team)}
                         \rTotal Experienced: {experienced_players_count}
                         \rTotal Inexperienced: {inexperienced_players_count}
-                        \rAverage Height: {average_team_height}
+                        \rAverage Height: {bandit_team_average_height}
                         \nPlayers on Team:
                         \n{bandits_team[0]['name']}, {bandits_team[1]['name']}, {bandits_team[2]['name']}, {bandits_team[3]['name']}, {bandits_team[4]['name']}, {bandits_team[5]['name']}\n
                         \nGuardians:
@@ -139,8 +155,7 @@ def app():
                 elif sub_choice == '3':
 
                     # For Loop calculating the average height of the Warrior team.
-                    for height in warriors_team:
-                        average_team_height = average_team_height + height['height'] / len(height)
+                    warriors_team_average_height = average_height(bandits_team)
                     
                     # For Loop over the Panthers Team to which will increase the counter once a experienced player is found.
                     for experience in warriors_team:
@@ -155,7 +170,7 @@ def app():
                         \nTotal Players: {len(bandits_team)}
                         \rTotal Experienced: {experienced_players_count}
                         \rTotal Inexperienced: {inexperienced_players_count}
-                        \rAverage Height: {average_team_height}
+                        \rAverage Height: {warriors_team_average_height}
                         \nPlayers on Team:
                         \n{warriors_team[0]['name']}, {warriors_team[1]['name']}, {warriors_team[2]['name']}, {warriors_team[3]['name']}, {warriors_team[4]['name']}, {warriors_team[5]['name']}\n
                         \nGuardians:
